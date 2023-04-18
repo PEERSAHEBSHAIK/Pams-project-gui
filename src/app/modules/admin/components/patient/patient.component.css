@@ -1,0 +1,50 @@
+table {
+    width: fit-content;
+}
+
+.example-table-container {
+    position: relative;
+    min-height: 10vh;
+    max-height: 70vh;
+    overflow: auto;
+}
+
+.search {
+    font-size: smaller;
+    float: right;
+    margin-right: 5%;
+    border: 1px solid #1C82AD;
+    border-radius: 20px;
+    width: 10vw;
+    height: 4vh;
+    text-align: center;
+    outline: none;
+}
+
+.search:hover {
+    border: 1px solid #13005A;
+    transition: 0.1s;
+}
+
+.table_div {
+    padding: 0 20px 20px 20px;
+}
+
+.patient_info {
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: smaller;
+    color: #00337C;
+}
+
+.mat-mdc-form-field {
+    font-size: medium;
+    float: right;
+    margin-right: 50px;
+}
+
+.tablecss {
+    font-size: smaller;
+    background-color: #95BDFF;
+}

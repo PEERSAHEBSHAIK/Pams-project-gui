@@ -1,0 +1,43 @@
+    table {
+        width: fit-content;
+    }
+
+    .table_div {
+        margin: 0 20px 20px 50px;
+    }
+
+    .patient_info {
+        margin-left: 50px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: smaller;
+        color: #00337C;
+    }
+
+    .search {
+        font-size: smaller;
+        float: right;
+        margin-right: 5%;
+        border: 1px solid #1C82AD;
+        border-radius: 20px;
+        width: 10vw;
+        height: 4vh;
+        text-align: center;
+        outline: none;
+    }
+
+    .search:hover {
+        border: 1px solid #13005A;
+        transition: 0.1s;
+    }
+
+    .btnn {
+        margin-right: 10px;
+    }
+
+    .tablecss {
+        font-size: smaller;
+        background-color: #95BDFF;
+        /* background-color: #537FE7; */
+
+    }

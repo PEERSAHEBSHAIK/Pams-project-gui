@@ -1,0 +1,17 @@
+.dashboard {
+    width: 100%;
+    justify-content: left;
+    height: 48px;
+    padding: auto;
+    font-size: medium;
+    color: #00337C !important;
+}
+
+.dashboard:hover {
+    color: white !important;
+    background-color: #95BDFF;
+}
+
+.anchor {
+    text-decoration: none;
+}

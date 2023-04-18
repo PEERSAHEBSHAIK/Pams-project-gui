@@ -1,0 +1,219 @@
+<div class="card-wrapper">
+    <div class="card-custom" *ngIf="patientdetail">
+        <div class="card-imgage" style="min-width: max-content;position: relative;left: 10vh;margin-top: 15px;">
+            <img src="assets/defult-img.jpg" alt="Card image cap"
+                style="border-radius: 50%; width: 132px; height: 124px" />
+        </div>
+
+
+        <div class="card-description" style="padding: 20px; position: relative;left: 160px;">
+            <p>
+                <span style="font-weight: 700">Name :{{ patientdetail.firstName }}</span>
+            </p>
+            <p><span style="font-weight: 700">Age :</span> {{ patientdetail.dob |age}}</p>
+            <p><span style="font-weight: 700">Gender :</span> {{ patientdetail.gender }}</p>
+            <p>
+                <span style="font-weight: 700">Mbl No :</span>
+                {{ patientdetail.contactNumber }}
+            </p>
+        </div>
+        <div class="rightcard" style="padding: 20px;position: relative;left: 420px;">
+            <p><span style="font-weight: 700">blood group</span>: b+ve</p>
+            <p>
+                <span style="font-weight: 700">Last Consultation Date:</span> 13/02/2022
+            </p>
+            <p>
+                <span style="font-weight: 700">Last Consultation with:</span> Aman
+                Kurkure
+            </p>
+            <p>
+                <span style="font-weight: 700">Key Notes on previous Consultation</span>: abc sdagcdvjkbfjsdbvjsbdvjbs
+                djbsdbfsdnfcvdifusj
+                bvidurbiwefciseunhoiuewh nie hisehinhseiucnh
+                eriuhncgiuehipevbliunherrihnggoieruchnoiuerhngoiuerhgiuerhgoiuerhgiuherighneriun
+                goiuerh bgiuergiunhigcnerntoi834noi
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<div class="" *ngIf="patientVisitdetail">
+    <h2 style="font-size: 40px; text-align: center">Basic diagnoses</h2>
+    <div class="maincontent" style="display: flex; flex-direction: column">
+        <div class="lineone" style="display: flex; justify-content: space-around">
+            <p>Height: {{ patientVisitdetail.height }}</p>
+            <p>Weight: {{ patientVisitdetail.weight }}</p>
+            <p>Allegrey: {{ patientVisitdetail.visitId }}</p>
+        </div>
+        <div class="lineone" style="display: flex; justify-content: space-around">
+            <p>
+                BloodPressureSystolic: {{ patientVisitdetail.bloodPressureSystolic }}
+            </p>
+            <p>
+                BloodPressureDiastolic:
+                {{ patientVisitdetail.bloodPressureDiastolic }}
+            </p>
+            <p>BodyTemperature: {{ patientVisitdetail.bodyTemperature }}</p>
+        </div>
+        <div class="lineone" style="display: flex; justify-content: space-around">
+            <p>respirationRate: {{ patientVisitdetail.respirationRate }}</p>
+            <p>bloodGroup: {{ patientVisitdetail.bloodGroup }}</p>
+            <p>keyNotes: {{ patientVisitdetail.keyNotes }}</p>
+        </div>
+    </div>
+</div>
+<div style="display: flex; flex-direction: column">
+    <h1 style="text-align: center">Prescription</h1>
+    <table class="table" style="text-align: center;    width: 56%;
+      margin-left: auto;
+      margin-right: auto;">
+
+        <thead>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Dosage</th>
+                <th>Keywords</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medicine of medicines">
+                <td><input type="text" [(ngModel)]="medicine.prescriptionName" style="max-height: 30px;">
+                </td>
+                <td><input type="text" [(ngModel)]="medicine.dosage"></td>
+                <td><input type="text" [(ngModel)]="medicine.prescriptionNotes"></td>
+                <td><button type="button" class="btn btn-danger" (click)="removeMedicine(medicine)">Remove</button></td>
+            </tr>
+            <tr>
+                <td><input type="text" [(ngModel)]="newMedicine.prescriptionName" style="height: 30px;">
+                </td>
+                <td><input type="text" [(ngModel)]="newMedicine.dosage"></td>
+                <td><input type="text" [(ngModel)]="newMedicine.prescriptionNotes"></td>
+                <td><button type="button" class="btn btn-primary" (click)="addMedicine()">Add</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="submitbtn" (click)="medicinesubmit(newMedicine)">Submit</button>
+
+
+
+</div>
+
+<!-- <div
+      class="mainbtn"
+      style="display: flex; justify-content: space-between"
+    >
+      <button mat-raised-button color="primary" style="width: 50%;margin: 5px;">
+        Previous Health History
+      </button>
+    </div> -->
+
+
+
+<div style="display: flex; flex-direction: column">
+    <h1 style="text-align: center">Tests :</h1>
+    <table class="table" style="text-align: center;    width: 56%;
+  margin-left: auto;
+  margin-right: auto;">
+
+        <thead>
+            <tr>
+                <th>Test Name</th>
+                <th>Dosage</th>
+                <th>Keywords</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let test of Tests">
+                <td><input type="text" [(ngModel)]="test.testName"></td>
+                <td><input type="text" [(ngModel)]="test.testNotes"></td>
+                <td><input type="text" [(ngModel)]="test.result"></td>
+                <td><button type="button" class="btn btn-danger" (click)="removeTest(test)">Remove</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" [(ngModel)]="newTest.testName"></td>
+                <td><input type="text" [(ngModel)]="newTest.testNotes"></td>
+                <td><input type="text" [(ngModel)]="newTest.result"></td>
+                <td><button type="button" class="btn btn-primary" (click)="addTest()">Add</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="submitbtn" (click)="testsubmit(newTest)">Submit</button>
+
+</div>
+
+
+
+<div></div>
+
+
+
+
+
+
+
+<!-- <button
+    (click)="toggleContent()"
+    mat-raised-button
+    color="primary"
+    style="width: 30%; margin: 5px"
+  >
+    Previous Health History
+  </button> -->
+<div *ngFor="let appointment of appointmentsHistory;let i = index">
+    <div>
+        <div *ngIf="showContent">
+            <mat-expansion-panel style="background-color: #fafafa" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: bolder">
+                        Health Records
+                    </mat-panel-title>
+                    <mat-panel-description>{{appointment.date}}</mat-panel-description>
+                    <mat-panel-description>{{appointment.reason}}</mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <h1>Test Result :</h1>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Dosage</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr *ngFor="let test of PatientsTests[i]">
+                        <td>{{test.testName}}</td>
+                        <td>{{test.result}}</td>
+                        <td>{{test.testNotes}}</td>
+                    </tr>
+
+                </table>
+
+                <div>
+                    <h1>Prescription :</h1>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Dosage</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr *ngFor="let prescription of prescriptions[i]">
+                            <td>{{prescription.prescriptionName}}</td>
+                            <td>{{prescription.dosage}}</td>
+                            <td>{{prescription.prescriptionNotes}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </div>
+    <br>
+</div>
+<button (click)="toggleContent()" mat-raised-button color="primary" style="width: 30%; margin: 5px">
+    Previous Health History
+</button>

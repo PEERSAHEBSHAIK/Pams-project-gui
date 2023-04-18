@@ -1,0 +1,86 @@
+<div class="card-wrapper">
+    <div class="card-custom">
+        <div class="card-imgage">
+            <img class="card-img rounded-circle" src="assets/sk.jpg" alt="Card image cap" style="border-radius: 50%" />
+        </div>
+        <div class="card-description" style="padding: 20px">
+            <p>
+                <span style="font-weight: 700">Name : </span>{{ patient.firstName }}
+            </p>
+            <p><span style="font-weight: 700">Age :</span> {{ patient.dob }}</p>
+            <p><span style="font-weight: 700">Gender :</span> {{ patient.gender }}</p>
+            <p>
+                <span style="font-weight: 700">Mbl No :</span>
+                {{ patient.contactNumber }}
+            </p>
+        </div>
+        <div class="rightcard" style="padding: 20px">
+            <p><span style="font-weight: 700">blood group</span>: b+ve</p>
+            <p>
+                <span style="font-weight: 700">Last Consultation Date:</span> 13/02/2022
+            </p>
+            <p>
+                <span style="font-weight: 700">Last Consultation with:</span> Aman
+                Kurkure
+            </p>
+            <p>
+                <span style="font-weight: 700">Key Notes on previous Consultation</span>: abc sdagcdvjkbfjsdbvjsbdvjbs
+                djbsdbfsdnfcvdifusj
+                bvidurbiwefciseunhoiuewh nie hisehinhseiucnh
+                eriuhncgiuehipevbliunherrihnggoieruchnoiuerhngoiuerhgiuerhgoiuerhgiuherighneriun
+                goiuerh bgiuergiunhigcnerntoi834noi
+            </p>
+        </div>
+    </div>
+    <div class="mainbtn" style="display: flex; justify-content: space-between">
+        <button mat-raised-button (click)="openDialog()" color="primary" style="width: 50%">
+            Previous Health History
+        </button>
+    </div>
+</div>
+<br />
+
+<form #appointment="ngForm" (ngSubmit)="onSubmit(appointment.value)" style="display: flex; flex-direction: column">
+    <div class="forminput one" style="margin: 15px">
+        <input class="inputform" type="text" name="bloodPressure" placeholder="Blood Pressure"
+            style="margin-right: 15px" ngModel required />
+        <input class="inputform" type="text" name="height" placeholder="height* " style="margin-right: 15px" ngModel
+            required />
+        <input class="inputform" type="text" name="bodyTemperature" placeholder="Body Temperature*" ngModel required />
+    </div>
+    <div class="forminput one" style="margin: 15px">
+        <input class="inputform" type="text" name="bloodPressureSystolic" placeholder="Blood Pressure Systolic"
+            style="margin-right: 15px" ngModel required />
+        <input class="inputform" type="text" name="bloodPressureDiastolic" placeholder="Blood Pressure Diastolic* "
+            style="margin-right: 15px" ngModel required />
+        <input class="inputform" type="text" name="RespirationRate" placeholder="respiration Rate*" ngModel required />
+    </div>
+    <div class="forminput" style="margin: 15px">
+        <input class="inputform" type="text" name="sugar" placeholder="Sugar*" style="margin-right: 15px" ngModel
+            required />
+
+        <input class="inputform" type="text" name="weight" placeholder="weight*" ngModel required />
+    </div>
+    <mat-form-field appearance="fill" style="width: 31.5%; margin-left: 440px; margin-top: -71px">
+        <mat-label>Allergies</mat-label>
+        <mat-select [formControl]="toppings" multiple name="allergies" ngModel required>
+            <mat-select-trigger>
+                {{toppings.value?.[0] || ''}}
+                <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                    (+{{ (toppings.value?.length || 0) - 1 }}
+                    {{ toppings.value?.length === 2 ? "other" : "others" }})
+                </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+                topping
+                }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="forminput" style="margin: 15px">
+        <textarea style="width: 100%" name="somethingData" cols="70" rows="5" class="inputform"
+            placeholder="Write Something..." ngModel required></textarea>
+    </div>
+    <button mat-raised-button (click)="clickToSubmit()" type="submit" class="btnform">
+        submit
+    </button>
+</form>
